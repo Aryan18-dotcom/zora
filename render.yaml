@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: zora-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MONGODB_URI
+        sync: false
+      - key: APP_TOKEN
+        generateValue: true
+      - key: EXOTEL_WEBHOOK_TOKEN
+        generateValue: true
